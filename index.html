@@ -1,180 +1,102 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Bahçelievler Teknik Lise 160/1</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bina 1 - taşınIRmaz</title>
   <style>
-    :root{
-      --bg:#f8f8f8;
-      --dark:#1a1a1a;
-      --muted:#eee;
-      --accent:#2BB1FF;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8f8f8;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:Inter,Arial,Helvetica,sans-serif;
-      background:var(--bg);
-      color:#222;
-      height:100vh;
-      display:flex;
-      flex-direction:column;
-    }
-
-    header{
-      background:var(--dark);
-      color:#fff;
-      padding:12px 18px;
-      font-size:18px;
-      flex-shrink:0;
-    }
-
-    /* Nav */
-    nav{
-      display:flex;
-      gap:0;
-      background:var(--muted);
-      border-bottom:1px solid #dcdcdc;
-      flex-shrink:0;
-    }
-    nav button{
-      flex:1;
-      padding:12px 10px;
-      border:0;
-      background:transparent;
-      cursor:pointer;
-      font-size:15px;
-    }
-    nav button.active{
-      background:#fff;
-      border-bottom:3px solid var(--dark);
-      font-weight:600;
-    }
-
-    /* Content area */
-    .stage{
-      flex:1;
-      min-height:0;
-      position:relative;
-    }
-    section{
-      display:none;
-      width:100%;
-      height:100%;
-      overflow:auto;
-      padding:16px;
-    }
-    section.active{display:block}
-
-    iframe{
-      width:100%;
-      height:100%;
-      border:0;
-      display:block;
-    }
-    img.plan{
-      width:100%;
-      height:100%;
-      object-fit:contain;
-      display:block;
-      background:#fff;
-    }
-
-    /* Info content */
-    #bilgi{
-      background:#fff;
-      border-top:1px solid #ccc;
-    }
-    #bilgi h2{margin-top:0}
-    #bilgi p{margin:8px 0}
-    #bilgi hr{margin:16px 0}
-
-    /* WhatsApp butonu */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25D366;
+    header {
+      background: #1a1a1a;
       color: white;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      text-align: center;
-      font-size: 30px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-      z-index: 999;
+      padding: 12px 20px;
+      font-size: 20px;
+    }
+    nav {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
+      background: #eee;
+      border-bottom: 1px solid #ccc;
     }
-    .whatsapp-float:hover {
-      background-color: #1ebe5b;
+    nav button {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      background: #eee;
+      cursor: pointer;
+      font-size: 16px;
     }
-
-    @media (min-width:900px){
-      img.plan{object-fit:cover}
+    nav button.active {
+      background: white;
+      border-bottom: 3px solid #1a1a1a;
+      font-weight: bold;
     }
-    @media (max-width:700px){
-      nav button{font-size:14px;padding:10px}
+    section {
+      display: none;
+      padding: 0;
+      height: calc(100vh - 100px);
+    }
+    section.active {
+      display: block;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .bilgi {
+      padding: 20px;
+      font-size: 16px;
+      background: white;
     }
   </style>
 </head>
 <body>
-  <header>🏠 Kiralık – Bahçelievler Teknik Lise 160/1</header>
+  <header>🏠 taşınIRmaz – Bina 1</header>
 
-  <nav aria-label="Sayfa kontrolleri">
-    <button id="btnTur" class="active" type="button" onclick="showSection('tur')">360 Sanal Tur</button>
-    <button id="btnPlan" type="button" onclick="showSection('plan')">Plan Görünümü</button>
-    <button id="btnBilgi" type="button" onclick="showSection('bilgi')">Gayrimenkul Bilgileri</button>
+  <nav>
+    <button class="active" onclick="showSection('tur')">360 Sanal Tur</button>
+    <button onclick="showSection('plan')">Plan (2D / 3D)</button>
+    <button onclick="showSection('bilgi')">Gayrimenkul Bilgileri</button>
   </nav>
 
-  <div class="stage" id="stage">
-    <section id="tur" class="active">
-      <iframe src="tour/index.html" title="360 derece sanal tur"></iframe>
-    </section>
+  <!-- 360 TUR -->
+  <section id="tur" class="active">
+    <iframe src="tour/index.html"></iframe>
+  </section>
 
-    <section id="plan">
-      <img src="plan.jpg" alt="Bina planı" class="plan">
-    </section>
+  <!-- PLANNER 5D PLAN -->
+  <section id="plan">
+    <iframe 
+      src="https://planner5d.com/view?key=363d694337b847a9d4dfc16c23874411"
+      allowfullscreen>
+    </iframe>
+  </section>
 
-    <section id="bilgi">
+  <!-- BİLGİ ALANI -->
+  <section id="bilgi">
+    <div class="bilgi">
       <h2>Gayrimenkul Bilgileri</h2>
-      <p><strong>Adres:</strong> Bahçelievler Teknik Lise Yanı</p>
-      <p><strong>Alan:</strong> 160 m²</p>
-      <p><strong>Tür:</strong> Eğitim Binası</p>
-      <p><strong>Durum:</strong> Kullanımda</p>
-      <p><strong>Açıklama:</strong> Bu yapı, eğitim faaliyetleri için tasarlanmış teknik lise binasıdır. 360 turda sınıf ve laboratuvar detaylarını inceleyebilirsiniz.</p>
-      <hr />
-      <p><strong>İletişim:</strong> ArsaRaZi Gayrimenkul</p>
-      <p><a href="https://wa.me/905551234567" target="_blank" style="color:#25D366;text-decoration:none;font-weight:bold;">📱 WhatsApp ile mesaj gönder</a></p>
-    </section>
-  </div>
-
-  <!-- WhatsApp butonu sağ alt -->
-  <a href="https://wa.me/905558944300" target="_blank" class="whatsapp-float" aria-label="WhatsApp'tan mesaj gönder">
-    💬
-  </a>
+      <p><strong>Konum:</strong> Bahçelievler Teknik Lisesi 160/1</p>
+      <p><strong>Tür:</strong> Daire</p>
+      <p><strong>Metrekare:</strong> 120 m²</p>
+      <p><strong>Oda Sayısı:</strong> 3+1</p>
+      <p><strong>Fiyat:</strong> Bilgi için iletişime geçiniz</p>
+      <hr>
+      <p><strong>İletişim:</strong> 0501 262 43 26</p>
+      <p><strong>E-posta:</strong> keskinrecep26@gmail.com</p>
+    </div>
+  </section>
 
   <script>
-    function showSection(id){
-      const sections = ['tur','plan','bilgi'];
-      sections.forEach(s=>{
-        const el = document.getElementById(s);
-        const btn = document.getElementById('btn' + s.charAt(0).toUpperCase() + s.slice(1));
-        if(el && btn){
-          if(s===id){
-            el.classList.add('active');
-            el.setAttribute('aria-hidden','false');
-            btn.classList.add('active');
-          } else {
-            el.classList.remove('active');
-            el.setAttribute('aria-hidden','true');
-            btn.classList.remove('active');
-          }
-        }
-      });
+    function showSection(id) {
+      document.querySelectorAll("nav button").forEach(btn => btn.classList.remove("active"));
+      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+      document.querySelector(`nav button[onclick*='${id}']`).classList.add("active");
+      document.getElementById(id).classList.add("active");
     }
   </script>
 </body>
