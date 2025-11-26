@@ -4,128 +4,143 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bina 1 - taşınIRmaz</title>
+
   <style>
-<!-- WhatsApp Sabit Buton -->
-<a href="https://wa.me/905012624326" target="_blank" class="whatsapp-btn">
-  💬 WhatsApp
-</a>
-
-<style>
-.whatsapp-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25D366;
-  color: white;
-  padding: 12px 18px;
-  border-radius: 50px;
-  font-weight: bold;
-  text-decoration: none;
-  font-size: 16px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  z-index: 9999;
-  transition: 0.3s;
-}
-
-.whatsapp-btn:hover {
-  background: #1ebe5d;
-  transform: scale(1.05);
-}
-</style>
-
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f8f8f8;
+      background: #f5f5f5;
     }
+
     header {
       background: #1a1a1a;
       color: white;
-      padding: 12px 20px;
+      padding: 15px 20px;
       font-size: 20px;
     }
+
     nav {
       display: flex;
-      background: #eee;
+      background: #eaeaea;
       border-bottom: 1px solid #ccc;
     }
+
     nav button {
       flex: 1;
       padding: 12px;
       border: none;
-      background: #eee;
+      background: #eaeaea;
       cursor: pointer;
-      font-size: 16px;
+      font-size: 15px;
     }
+
     nav button.active {
       background: white;
       border-bottom: 3px solid #1a1a1a;
       font-weight: bold;
     }
+
     section {
       display: none;
-      padding: 0;
-      height: calc(100vh - 100px);
+      height: calc(100vh - 120px);
     }
+
     section.active {
       display: block;
     }
+
     iframe {
       width: 100%;
       height: 100%;
       border: none;
     }
-    .bilgi {
+
+    .info-box {
       padding: 20px;
-      font-size: 16px;
       background: white;
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    .info-box h2 {
+      margin-top: 0;
+    }
+
+    /* WhatsApp Butonu */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      padding: 14px 20px;
+      border-radius: 50px;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 9999;
+    }
+
+    .whatsapp-btn:hover {
+      background: #1ebe5d;
     }
   </style>
 </head>
+
 <body>
-  <header>🏠 taşınIRmaz – Bina 1</header>
 
-  <nav>
-    <button class="active" onclick="showSection('tur')">360 Sanal Tur</button>
-    <button onclick="showSection('plan')">Plan (2D / 3D)</button>
-    <button onclick="showSection('bilgi')">Gayrimenkul Bilgileri</button>
-  </nav>
+<header>🏠 taşınIRmaz – Bina 1</header>
 
-  <!-- 360 TUR -->
-  <section id="tur" class="active">
-    <iframe src="tour/index.html"></iframe>
-  </section>
+<nav>
+  <button class="active" onclick="showSection('tur')">360 Sanal Tur</button>
+  <button onclick="showSection('plan')">Plan (3D)</button>
+  <button onclick="showSection('bilgi')">Gayrimenkul Bilgileri</button>
+</nav>
 
-  <!-- PLANNER 5D PLAN -->
-  <section id="plan">
-    <iframe 
-      src="https://planner5d.com/view?key=363d694337b847a9d4dfc16c23874411"
-      allowfullscreen>
-    </iframe>
-  </section>
+<!-- 360 TUR -->
+<section id="tur" class="active">
+  <iframe src="tour/index.html"></iframe>
+</section>
 
-  <!-- BİLGİ ALANI -->
-  <section id="bilgi">
-    <div class="bilgi">
-      <h2>Gayrimenkul Bilgileri</h2>
-      <p><strong>Konum:</strong> Bahçelievler Teknik Lisesi 160/1</p>
-      <p><strong>Tür:</strong> Daire</p>
-      <p><strong>Metrekare:</strong> 120 m²</p>
-      <p><strong>Oda Sayısı:</strong> 3+1</p>
-      <p><strong>Fiyat:</strong> Bilgi için iletişime geçiniz</p>
-      <hr>
-      <p><strong>İletişim:</strong> 0501 262 43 26</p>
-      <p><strong>E-posta:</strong> keskinrecep26@gmail.com</p>
-    </div>
-  </section>
+<!-- PLAN (Planner5D gömülü) -->
+<section id="plan">
+  <iframe src="https://planner5d.com/view?key=363d694337b847a9d4dfc16c23874411"></iframe>
+</section>
 
-  <script>
-    function showSection(id) {
-      document.querySelectorAll("nav button").forEach(btn => btn.classList.remove("active"));
-      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
-      document.querySelector(`nav button[onclick*='${id}']`).classList.add("active");
-      document.getElementById(id).classList.add("active");
-    }
-  </script>
+<!-- BİLGİLER -->
+<section id="bilgi">
+  <div class="info-box">
+    <h2>Gayrimenkul Bilgileri</h2>
+    <p><strong>İlan Sahibi:</strong> taşınIRmaz</p>
+    <p><strong>Konum:</strong> Balıkesir / Bahçelievler</p>
+    <p><strong>Oda Sayısı:</strong> 3+1</p>
+    <p><strong>Metrekare:</strong> 120 m²</p>
+    <p><strong>Kat:</strong> 2</p>
+
+    <h3>Fiyatlandırma</h3>
+    <p>Daire Sanal Tur Hizmeti: <strong>2000 ₺</strong> (KDV Yok)</p>
+
+    <h3>İletişim</h3>
+    <p>📞 Telefon: 0501 262 43 26</p>
+    <p>📧 E-Posta: keskinrecep26@gmail.com</p>
+    <p>📷 Instagram: @tasinirmaz (yakında)</p>
+  </div>
+</section>
+
+<!-- WhatsApp Sabit Buton -->
+<a href="https://wa.me/905012624326" target="_blank" class="whatsapp-btn">
+  💬 WhatsApp İletişim
+</a>
+
+<script>
+function showSection(id) {
+  document.querySelectorAll("nav button").forEach(btn => btn.classList.remove("active"));
+  document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+  document.querySelector(`nav button[onclick*='${id}']`).classList.add("active");
+  document.getElementById(id).classList.add("active");
+}
+</script>
+
 </body>
 </html>
