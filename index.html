@@ -90,6 +90,29 @@
     #bilgi p{margin:8px 0}
     #bilgi hr{margin:16px 0}
 
+    /* WhatsApp butonu */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+    .whatsapp-float:hover {
+      background-color: #1ebe5b;
+    }
+
     @media (min-width:900px){
       img.plan{object-fit:cover}
     }
@@ -124,9 +147,15 @@
       <p><strong>Durum:</strong> Kullanımda</p>
       <p><strong>Açıklama:</strong> Bu yapı, eğitim faaliyetleri için tasarlanmış teknik lise binasıdır. 360 turda sınıf ve laboratuvar detaylarını inceleyebilirsiniz.</p>
       <hr />
-      <p><strong>İletişim:</strong> ArsaRaZi Gayrimenkul • <a href="tel:+905551234567">+90 555 123 4567</a></p>
+      <p><strong>İletişim:</strong> ArsaRaZi Gayrimenkul</p>
+      <p><a href="https://wa.me/905551234567" target="_blank" style="color:#25D366;text-decoration:none;font-weight:bold;">📱 WhatsApp ile mesaj gönder</a></p>
     </section>
   </div>
+
+  <!-- WhatsApp butonu sağ alt -->
+  <a href="https://wa.me/905551234567" target="_blank" class="whatsapp-float" aria-label="WhatsApp'tan mesaj gönder">
+    💬
+  </a>
 
   <script>
     function showSection(id){
